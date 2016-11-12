@@ -28,9 +28,6 @@ Player.propTypes = {
   score: React.PropTypes.number.isRequired,
 };
 
-Counter.propTypes = {
-    score: React.PropTypes.number.isRequired,
-};
 
 Application.propTypes = {
     title: React.PropTypes.string,
@@ -45,15 +42,22 @@ Application.defaultProps = {
     title: "Scoreboard",
 };
 
-function Counter(props){
-    return(
-        <div className = "counter">
-            <button className = "counter-action decrement"> - </button>
-            <div className = "counter-score"> {props.score} </div>
-            <button className = "counter-action increment"> + </button>
-        </div>
-    )
-}
+var Counter = React.createClass({
+    render: function () {
+        return(
+            <div className = "counter">
+                <button className = "counter-action decrement"> - </button>
+                <div className = "counter-score"> {this.props.score} </div>
+                <button className = "counter-action increment"> + </button>
+            </div>
+        );
+    }
+});
+
+Counter.propTypes = {
+    score: React.PropTypes.number.isRequired,
+};
+
 function Header(props) {
     return (
         <div className= "header">
