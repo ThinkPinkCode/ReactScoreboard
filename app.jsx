@@ -21,12 +21,24 @@ var PLAYERS = [
 var nextId = 4;
 
 var Stopwatch = React.createClass({
+    getInitialState: function(){
+        return {
+            running: false,
+        }
+    },
     render: function(){
+
+        var startStop;
+        if (this.state.running){
+            startStop = <button>Stop</button>;
+        } else {
+            startStop =  <button>Start</button>
+        }
         return(
             <div className = "stopwatch">
                 <h2>Stopwatch</h2>
                 <div className="stopwatch-time">0</div>
-                <button>Start</button>
+                { startStop }
                 <button>Reset</button>
             </div>
         );
